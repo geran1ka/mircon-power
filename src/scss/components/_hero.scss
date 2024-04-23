@@ -1,0 +1,139 @@
+@use "../variables" as *;
+
+.hero {
+  &__container {
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    grid-template-areas: "img equipment" "img partners";
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: "img" "equipment" "partners";
+      grid-template-rows: min-content 410px 410px;
+    }
+  }
+
+  &__bg {
+    position: relative;
+    grid-area: img;
+  }
+
+  &__bg-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url("/img/hero/hero-btn-fon.svg");
+    max-height: 187px;
+    height: 100%;
+    max-width: 394px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: start;
+    justify-content: flex-end;
+  }
+
+  &__bg-img {
+    border-radius: 50px;
+    object-fit: cover;
+  }
+
+  &__bg-link {
+    padding: 16px 40px;
+    color: $white;
+    font-size: 16px;
+    background-color: $green;
+    border-radius: 40px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 370px;
+    width: 100;
+  }
+
+  &__block-equipment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: equipment;
+    padding: 28px;
+    border-radius: 50px;
+    background-color: #f3f8f7;
+  }
+
+  &__link-equipment {
+    max-width: min-content;
+    padding: 16px;
+    font-size: 14px;
+    color: #2b2a29;
+    background-color: transparent;
+    border: 1.4px solid $main-color;
+    border-radius: 40px;
+    backdrop-filter: blur(24px);
+  }
+
+  &__text-equipment {
+    font-size: 16px;
+  }
+
+  &__partners {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: partners;
+    padding: 28px;
+    border-radius: 50px;
+    background-color: #f3f8f7;
+    background-image: url("/img/hero/hero-partners.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+  }
+
+  &__link-partners {
+    max-width: min-content;
+    padding: 16px;
+    border: 1.4px solid #fff;
+    font-size: 14px;
+    color: $white;
+  }
+
+  &__partners-text {
+    max-width: 272px;
+
+    font-size: 16px;
+    color: $white;
+  }
+
+  &__partners-wrapper {
+    background-image: url("/img/hero/partners-btn-fon.svg");
+    background-repeat: no-repeat;
+    width: 109px;
+    height: 109px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__partners-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.container {
+}
+.link {
+  &_green {
+  }
+}
+.logo {
+}
+.logo-img {
+}

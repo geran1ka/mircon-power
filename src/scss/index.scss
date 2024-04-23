@@ -1,4 +1,8 @@
 @use "default" as *;
+@use "components/header";
+@use "components/hero";
+
+@use "components/footer";
 
 @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 @import "normalize.css";

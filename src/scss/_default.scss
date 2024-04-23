@@ -15,7 +15,7 @@ html {
 body {
   position: relative;
   overflow-x: hidden;
-  min-width: 320px;
+  min-width: 375px;
   min-height: 100vh;
   font-family: $font-family;
   -webkit-font-smoothing: antialiased;
@@ -26,8 +26,8 @@ body {
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
-  color: $green;
-  background-color: $light;
+  color: $main-color;
+  background-color: #f5f5f5;
 }
 
 img,
@@ -90,8 +90,8 @@ iframe {
 Чтобы контент не прижимался к краям экрана
 */
 
-.container {
-  max-width: 1404px;
-  padding: 0 52px;
-  margin: 0 auto;
-}
+// .container {
+//   max-width: 1404px;
+//   padding: 0 52px;
+//   margin: 0 auto;
+// }
