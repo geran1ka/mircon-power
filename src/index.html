@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mircon Power</title>
     <link rel="stylesheet" href="scss/index.scss" />
+    <script src="script/index.js" type="module"></script>
   </head>
   <body>
-    <header class="header" hidden>
+    <header class="header">
       <div class="container header__container">
         <a href="/" class="header__logo logo">
           <img
@@ -21,15 +22,15 @@
         </a>
 
         <nav class="navigation header__navigation">
-          <button class="navigation__btn">
-            <span class="navigation__btn_line"></span>
+          <button class="burger">
+            <span class="burger__line"></span>
           </button>
 
-          <div class="navigation__mobile-wrapper"></div>
+          <!-- <div class="navigation__mobile-wrapper"></div> -->
 
-          <ul class="navigation__list">
-            <li class="navigation__item">
-              <a href="#" class="navigation__link">Каталог</a>
+          <ul class="navigation__menu-list">
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link">Каталог</a>
 
               <div class="catalog">
                 <p class="catalog__text">
@@ -72,29 +73,31 @@
                 </ul>
               </div>
             </li>
-            <li class="navigation__item">
-              <a href="#" class="navigation__link"> О&nbsp;компании </a>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link">О&nbsp;компании </a>
             </li>
-            <li class="navigation__item">
-              <a href="#" class="navigation__link"> Проекты </a>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link"> Проекты </a>
             </li>
-            <li class="navigation__item">
-              <a href="#" class="navigation__link">Новости</a>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link">Новости</a>
             </li>
-            <li class="navigation__item">
-              <a href="#" class="navigation__link">Сервис</a>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link">Сервис</a>
             </li>
-            <li class="navigation__item">
-              <a href="#" class="navigation__link">Дилерам</a>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link">Дилерам</a>
             </li>
-            <li class="navigation__item">
-              <a href="#" class="navigation__link">Контакты</a>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link">Контакты</a>
             </li>
           </ul>
 
-          <a href="tel:+71234567890" class="navigation__tel"
-            >+7 (123) 456 78 90</a
-          >
+          <div class="header__contacts">
+            <a href="tel:+71234567890" class="header__contacts-link"
+              >+7 (123) 456 78 90</a
+            >
+          </div>
         </nav>
       </div>
     </header>

@@ -1,2 +1,98 @@
 .header {
+  padding: 16px 0;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+  }
+
+  &__logo {
+  }
+
+  &__navigation {
+  }
+
+  &__contacts {
+    display: none;
+  }
+
+  &__contacts-link {
+  }
+}
+
+.navigation {
+  text-align: end;
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__menu-item {
+  }
+
+  &__menu-link {
+  }
+}
+.burger {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  &__line {
+    display: block;
+    margin-left: auto;
+    height: 2px;
+    max-width: 13px;
+    width: 100%;
+    background-color: #2b2a29;
+    transition: transform 0.3s ease;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    right: 0;
+    left: 0;
+    background-color: #2b2a29;
+    transition: transform 0.3s ease, top 0.3s ease-in-out;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    top: 100%;
+  }
+
+  .navigation_active &__line {
+    transform: scale(0);
+  }
+
+  .navigation_active &::before {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+
+  .navigation_active &::after {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+}
+.catalog {
+  display: none;
+
+  &__text {
+  }
+
+  &__list {
+  }
+
+  &__item {
+  }
+
+  &__link {
+  }
 }
