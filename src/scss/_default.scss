@@ -81,6 +81,20 @@ iframe {
   transform: scale(0);
 }
 
+.main-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  width: 100%;
+  padding-top: 100px;
+}
+
 /*
 Пример контейнера
 

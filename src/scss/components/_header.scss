@@ -1,62 +1,211 @@
+@use "../variables" as *;
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 16px 0;
+  background-color: $bg-color;
+  transition: background-color 0.24s ease-in-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: $bg-color;
+    transition: background-color 0.24s ease-in-out;
+  }
+
+  &_active::before {
+    background-color: $bg-color-alt;
+  }
+
   &__container {
+    position: relative;
+  }
+
+  &__body {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
+    grid-template-columns: 112px 1fr;
+    grid-template-areas: "logo burger";
+    align-items: center;
+
+    @media (min-width: 992px) {
+      grid-template-columns: 2fr 10fr;
+      grid-template-areas: "logo nav";
+      gap: 20px;
+    }
   }
 
   &__logo {
+    grid-area: logo;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__logo-img {
+    display: block;
+    width: 100%;
+
+    @media (min-width: 992px) {
+      width: 190px;
+    }
   }
 
   &__navigation {
+    grid-area: nav;
   }
 
-  &__contacts {
-    display: none;
-  }
-
-  &__contacts-link {
+  &__burger {
+    grid-area: burger;
   }
 }
 
 .navigation {
-  text-align: end;
+  position: fixed;
+  top: -130%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $bg-color-alt;
+  transition: top 0.44s ease-in-out;
+  padding: 24px;
+
+  @media (min-width: 992px) {
+    position: static;
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    flex-direction: row;
+    background-color: transparent;
+    padding: 0;
+    gap: 30px;
+    width: 100%;
+  }
+
+  &_active {
+    top: 60px;
+  }
+
   &__menu-list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 10px;
+    order: 2;
+    max-width: 990px;
+    min-height: 100vh;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      min-height: max-content;
+      gap: 10px;
+      order: 0;
+      z-index: 3;
+      padding: 0;
+      align-items: center;
+      justify-self: center;
+    }
+
+    @media (min-width: 1200px) {
+      gap: 44px;
+    }
   }
 
   &__menu-item {
   }
 
   &__menu-link {
+    @media (min-width: 992px) {
+      font-size: 15px;
+    }
+  }
+
+  &__contacts {
+  }
+}
+.contacts {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 30px;
+  background-color: $bg-color-alt;
+  justify-content: center;
+
+  @media (min-width: 992px) {
+    background-color: transparent;
+    align-items: center;
+    padding: 0;
+  }
+
+  &__link {
+    display: block;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+    color: $color-akcent;
+    border-radius: 10px;
+    background-color: $gray-light;
+    margin: auto;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 16px;
+    text-wrap: nowrap;
+
+    @media (min-width: 992px) {
+      z-index: 3;
+      background-color: transparent;
+      margin-bottom: 0;
+      font-size: 16px;
+      padding: 0;
+    }
+  }
+
+  &__social-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  &__social-item {
+  }
+
+  &__social-link {
   }
 }
 .burger {
-  width: 20px;
-  height: 20px;
+  justify-self: end;
   position: relative;
-  &__line {
-    display: block;
-    margin-left: auto;
-    height: 2px;
-    max-width: 13px;
-    width: 100%;
-    background-color: #2b2a29;
-    transition: transform 0.3s ease;
+  z-index: 3;
+  display: block;
+  width: 20px;
+  height: 18px;
+
+  @media (min-width: 992px) {
+    display: none;
   }
 
   &::after,
   &::before {
     content: "";
     position: absolute;
-    height: 2px;
     right: 0;
-    left: 0;
-    background-color: #2b2a29;
-    transition: transform 0.3s ease, top 0.3s ease-in-out;
+    height: 2px;
+    border-radius: 1px;
+    background-color: $main-color;
+    width: 100%;
+
+    transition: top 0.24s ease-in-out, transform 0.24s ease-in-out;
   }
 
   &::before {
@@ -67,32 +216,29 @@
     top: 100%;
   }
 
-  .navigation_active &__line {
-    transform: scale(0);
+  &__line {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 2px;
+    max-width: 13px;
+    width: 100%;
+    border-radius: 1px;
+    background-color: $main-color;
+    transition: transform 0.24s ease-in-out;
   }
 
-  .navigation_active &::before {
+  &_active::before {
     top: 50%;
     transform: rotate(45deg);
   }
 
-  .navigation_active &::after {
+  &_active::after {
     top: 50%;
     transform: rotate(-45deg);
   }
-}
-.catalog {
-  display: none;
 
-  &__text {
-  }
-
-  &__list {
-  }
-
-  &__item {
-  }
-
-  &__link {
+  &_active &__line {
+    transform: scale(0);
   }
 }
